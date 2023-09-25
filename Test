@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Handy App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+        p {
+            font-size: 24px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #jaButton {
+            background-color: #4CAF50; /* Grüne Farbe */
+            color: white;
+        }
+        #jaButton:hover {
+            background-color: #45a049; /* Dunklere grüne Farbe beim Hover */
+        }
+        #neinButton {
+            background-color: #FF5733; /* Rote Farbe */
+            color: white;
+        }
+        #neinButton:hover {
+            background-color: #e64d29; /* Dunklere rote Farbe beim Hover */
+        }
+        #ergebnisText {
+            font-size: 24px;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Entscheidungshilfe</h1>
+    <p>Hast du heute Lust?</p>
+    <button id="jaButton" onclick="wahleAntwort('ja')">Ja</button>
+    <button id="neinButton" onclick="wahleAntwort('nein')">Nein</button>
+    <p id="ergebnisText"></p>
+
+    <script>
+        function wahleAntwort(antwort) {
+            if (antwort === 'ja') {
+                document.getElementById('ergebnisText').innerText = "Heute geht's ab!";
+            } else if (antwort === 'nein') {
+                document.getElementById('ergebnisText').innerText = "Heute geht nix.";
+            }
+            document.getElementById('ergebnisText').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('ergebnisText').style.display = 'none';
+            }, 2000); // Ergebnis wird für 2 Sekunden angezeigt
+        }
+    </script>
+</body>
+</html>
